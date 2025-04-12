@@ -1,63 +1,34 @@
-import { Helper } from "./../Helper";
+import { Clicar } from "../../../support/acoes/Clicar";
 
 export class Modulo {
-    identificador = null;
-  
-    constructor (identificador) {
-      this.identificador = identificador;
-  
-      this.make();
-    }
-  
-    /**
-     * Acessa o modulo
-     */
-    make = () => {
-      cy.get(this.identificador).click();
-    };
-  
-    relatorios = () => {
-  
-      Helper.buscar_clicar('Relatorios');
-      
-      return this;
-    };
-  
-    consulta = () => {
-  
-      Helper.buscar_clicar('Consulta');
-      
-      return this;
-    };
-  
-    procedimentos = () => {
-  
-      Helper.buscar_clicar('Procedimentos');
-      
-      return this;
-    };
+  classModulo = 'modulo_';
 
-    inclusao = () => {
-      Helper.buscar_clicar('Inclusão');
-
-      return;
+  constructor (id_item_db_modulos) {
+    this.classModulo += id_item_db_modulos;
   }
 
-  alteracao = () => {
-      Helper.buscar_clicar('Alteração');
+  /**
+   * Acessa o modulo
+   */
+  abrir = () => {
+    return Clicar.na_classe(this.classModulo);
+  };
 
-      return;
-  }
+  relatorios = () => {
+    Clicar.na_descricao('Relatorios');
+    
+    return this;
+  };
 
-  exclusao = () => {
-      Helper.buscar_clicar('Exclusão');
+  consulta = () => {
+    Clicar.na_descricao('Consulta');
+    
+    return this;
+  };
 
-      return;
-  }
-
-  anulacao = () => {
-      Helper.buscar_clicar('Anulação');
-
-      return;
-  }
+  procedimentos = () => {
+    Clicar.na_descricao('Procedimentos');
+    
+    return this;
+  };
 };

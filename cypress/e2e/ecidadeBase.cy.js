@@ -1,28 +1,50 @@
 import { Ecidade } from "./facades/Ecidade";
-import { Helper } from "./facades/Helper";
+import { Clicar } from "../support/acoes/Clicar";
+import { Escrever } from "../support/acoes/Escrever";
+import { Esperar } from "../support/acoes/Esperar";
 import { Patrimonial } from "./facades/area/Patrimonial";
-import { Compras } from "./facades/modulo/Compras";
+import { Licitacao } from "./facades/modulo/Licitacao/Licitacao";
+import { Compras } from "./facades/modulo/Compras/Compras";
 
 describe('Ecidade based', () => {
-  it('inicio', () => {
+  it('Primeiro passo', () => {
 
-    Ecidade.define_resolucao();
+    Ecidade.login('e-cidade-lucas-ptr');
 
-    Ecidade.login(
-      '', // Login
-      '', // Senha
-      '', //Nome da pasta da aplicacao
-    );
+    Ecidade.instituicao(1); // define a instituicao
 
-    Ecidade.instituicao(1);
+    Ecidade.area(new Patrimonial); // define a area
 
-    Ecidade.area(new Patrimonial);
-
-    Ecidade.modulo(new Compras)
+    Ecidade.modulo(new Licitacao) // define o modulo
       .procedimentos()
-      .preco_de_referencia()
-      .inclusao();
+      .adjudicacao()
+      .inclusao(() => {
 
-    Helper.buscar_escrever_id('si01_processocompra', 'aaa');
+      });
+
+    Ecidade.instituicao(7); // é possível trocar de instituicao
+
+    Ecidade.modulo(new Compras) // é possível acessar outros modulos
+      .procedimentos()
+      .solicitacao_de_compras()
+      .inclusao(() => {
+        
+      });
+      
+  });
+
+  it('Segundo passo', () => {
+
+    Ecidade.login('e-cidade-lucas-ptr');
+
+    Ecidade.instituicao(7); // é possível trocar de instituicao
+
+    Ecidade.modulo(new Compras) // é possível acessar outros modulos
+      .procedimentos()
+      .solicitacao_de_compras()
+      .inclusao(() => {
+        
+      });
+      
   });
 });

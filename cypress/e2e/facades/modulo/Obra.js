@@ -1,8 +1,8 @@
 import { Modulo } from "./Modulo";
 
-class Obras extends Modulo {
-    constructor(identificador) {
-      super('.modulo_4001223');
-    };
+export class Obras extends Modulo {
+  constructor(db_modulos_id_item) {
+    super('4001223'); // recebe o id_item da tabela db_modulos
+  };
 };
   

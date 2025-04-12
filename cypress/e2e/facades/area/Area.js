@@ -1,14 +1,16 @@
-export class Area {
-    identificador = null;
+import { Clicar } from "../../../support/acoes/Clicar";
 
-    constructor (identificador) {
-        this.identificador = identificador;
+export class Area {
+    classArea = 'area_';
+
+    constructor (at26_sequencial_atendcadarea) {
+        this.classArea += at26_sequencial_atendcadarea;
     }
 
     /**
      * Acessa a area
      */
-    make = () => {
-        cy.get(this.identificador).click();
+    abrir = () => {
+        return Clicar.na_classe(this.classArea);
     };
 }
