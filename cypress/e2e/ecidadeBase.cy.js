@@ -9,9 +9,9 @@ describe('Ecidade based', () => {
     Ecidade.define_resolucao();
 
     Ecidade.login(
-      'drn.contass',
-      'Danillo@126',
-      'mario',
+      '', // Login
+      '', // Senha
+      '', //Nome da pasta da aplicacao
     );
 
     Ecidade.instituicao(1);
@@ -24,7 +24,5 @@ describe('Ecidade based', () => {
       .inclusao();
 
     Helper.buscar_escrever_id('si01_processocompra', 'aaa');
-
   });
-  
 });
