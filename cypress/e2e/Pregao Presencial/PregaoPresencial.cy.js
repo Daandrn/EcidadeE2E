@@ -7,8 +7,6 @@ import { Licitacao } from "./../facades/modulo/Licitacao/Licitacao";
 describe('Pregao Presencial', () => {
   it('Fase de lances', () => {
 
-    Ecidade.define_resolucao();
-
     Ecidade.login('e-cidade-lucas-ptr');
 
     Ecidade.instituicao(1);

@@ -37,7 +37,7 @@ describe('Ecidade based', () => {
 
     Ecidade.login('e-cidade-lucas-ptr');
 
-    Ecidade.instituicao(7); // é possível trocar de instituicao
+    Ecidade.instituicao(2); // é possível trocar de instituicao
 
     Ecidade.modulo(new Compras) // é possível acessar outros modulos
       .procedimentos()

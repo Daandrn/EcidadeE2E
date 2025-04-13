@@ -89,8 +89,12 @@ export class Ecidade {
     
     Clicar.na_descricao('MENU');
     
-    Object.values(this.define).forEach(element => {
-      element.abrir();
+    Object.entries(this.define).forEach(([nome, valor]) => {
+      if (valor === null) {
+        throw new Error(`${nome} não definido(a)! Verifique.`);
+      }
+      
+      valor.abrir();
     });
   }
 };
